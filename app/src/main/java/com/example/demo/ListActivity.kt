@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Window
 import android.view.WindowManager
-import android.widget.ListAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.example.demo.Adapters.GistsListAdapter
@@ -20,7 +19,6 @@ class ListActivity : AppCompatActivity(), PublicGistsAsyncTaskInterface, ListAda
 
     var progressDialog : ProgressDialog? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.list_activity_layout)
@@ -29,6 +27,7 @@ class ListActivity : AppCompatActivity(), PublicGistsAsyncTaskInterface, ListAda
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
 
         progressDialog = ProgressDialog(this)
         progressDialog!!.setMessage(resources.getString(R.string.loading))
