@@ -69,12 +69,14 @@ class DetailActivity : AppCompatActivity(), GistDetailAsyncTaskInterface {
                 var gistDetailDBList = mDb?.gistDetailDBDao()?.getGist(gist!!.id)
                 if (gistDetailDBList != null) {
                     if (gistDetailDBList.isEmpty()) {
-                        Toast.makeText(
-                            this,
-                            resources.getText(R.string.detailToastMessage),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        progressDialog!!.dismiss()
+                        mUiHandler.post({
+                            Toast.makeText(
+                                this,
+                                resources.getText(R.string.detailToastMessage),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            progressDialog!!.dismiss()
+                        })
                     } else {
                         var gistDetailDB = gistDetailDBList.get(0)
                         var gistDetail = GistDetail()
